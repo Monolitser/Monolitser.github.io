@@ -1,26 +1,133 @@
-.box {
-   backdrop-filter: blur(5px) saturate(180%);
-    -webkit-backdrop-filter: blur(5px) saturate(180%);
-    
-    background-color: rgba(255, 255, 255, 0.4);
-    
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-    
-    padding: 20px;
-    width: 300px;
-    height: 90vh;
-
-    position: relative;
-}
-
-.textt {
-    color: red;
+/* Базові налаштування */
+html {
+    scroll-behavior: smooth; /* Плавна прокрутка при натисканні на посилання (#) */
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 200vh;
     background-image: url(./images/background.jpg);
     background-size: cover;
+    background-attachment: fixed; /* Щоб фон не їздив при скролі */
+}
+
+.navbar {
+    position: fixed;
+    top: 20px; /* Відступ від верху для краси */
+    left: 10%;
+    width: 80%;
+    height: 70px;
+    border-radius: 20px;
+    
+    /* Ефект скла */
+    background: rgba(255, 255, 255, 0.15); /* Зробив трохи прозорішим */
+    backdrop-filter: blur(16px); 
+    -webkit-backdrop-filter: blur(16px);
+    
+    /* Грані та тіні для об'єму (скляний відблиск) */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    /* Grid для ідеального центрування логотипу */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Ліва зона | Авто-розмір по центру | Права зона */
+    align-items: center;
+    padding: 0 30px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+/* Контейнер для логотипу */
+.logo-container a {
+    display: flex;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo-container a:hover {
+    transform: scale(1.08); /* Логотип злегка збільшується */
+    filter: brightness(1.1); /* Стає трохи яскравішим */
+}
+
+.logo-container a:active {
+    transform: scale(0.95); /* Ефект натискання */
+}
+
+.logo {
+    height: 65px; /* Фіксуємо висоту, ширина підлаштується автоматично */
+    width: auto;
+    border-radius: 8px; /* Якщо хочеш злегка закруглити краї фотки */
+    object-fit: cover;
+}
+
+/* Налаштування списків кнопок */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Притискаємо ліві кнопки вліво, праві - вправо */
+.left-links {
+    justify-content: flex-start;
+}
+
+.right-links {
+    justify-content: flex-end;
+}
+
+/* Дизайн самих кнопок (як на скріншоті) */
+.nav-links a {
+    text-decoration: none;
+    color: #222; /* Темний колір тексту */
+    font-weight: 600;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Відстань між іконкою та текстом */
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Ефект при наведенні (підсвічування фону) */
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Активна кнопка (підкреслення знизу, як на фото Github) */
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 15%;
+    width: 70%;
+    height: 3px;
+    background: #ff7e67; /* Колір підкреслення (можеш змінити під свій дизайн) */
+    border-radius: 3px;
+}
+
+.icon {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+/* Декоративний фон для тесту */
+.background-preview {
+    height: 400px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border-radius: 20px;
+    width: 80%;
+    margin-left: 10%;
 }
