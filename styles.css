@@ -131,3 +131,43 @@ body {
     width: 80%;
     margin-left: 10%;
 }
+
+/* Адаптація для телефонів (екран менше 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        left: 5%;      /* Менші відступи по боках */
+        width: 90%;
+        height: 60px;  /* Трохи вужча панель */
+        padding: 0 15px;
+        grid-template-columns: 1fr auto 1fr; /* Залишаємо структуру */
+    }
+
+    .logo {
+        height: 30px;  /* Зменшуємо лого, щоб не займало все місце */
+    }
+
+    .nav-links {
+        gap: 8px;      /* Менша відстань між кнопками */
+    }
+
+    .nav-links a {
+        font-size: 12px;  /* Менший шрифт */
+        padding: 6px 10px;
+        flex-direction: column; /* Іконка буде над текстом (опціонально) */
+        gap: 2px;
+    }
+
+    .icon {
+        font-size: 16px;
+    }
+
+    /* Можна сховати текст на дуже малих екранах, залишивши тільки іконки */
+    @media (max-width: 480px) {
+        .nav-links a span:not(.icon) {
+            display: none; /* Ховаємо текст кнопок, лишаємо тільки іконки */
+        }
+        .nav-links a {
+            padding: 10px;
+        }
+    }
+}
